@@ -1,0 +1,2019 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pietät Fred Gehbert — In schweren Stunden an Ihrer Seite</title>
+  <meta name="description" content="Pietät Fred Gehbert begleitet Sie würdevoll und einfühlsam durch eine der schwersten Zeiten Ihres Lebens. Wir sind rund um die Uhr für Sie erreichbar. Bad Nauheim.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --cream:       #f5f0e8;
+      --cream-dark:  #ede6d9;
+      --parchment:   #e8dfce;
+      --charcoal:    #1e1d1b;
+      --charcoal-mid:#3a3834;
+      --warm-gray:   #7c7870;
+      --light-gray:  #b0aaa2;
+      --sage:        #6b8c6b;
+      --sage-light:  #8fa88f;
+      --sage-pale:   #d4e0d4;
+      --gold:        #b8946a;
+      --gold-light:  #d4b48a;
+      --white:       #fdfaf5;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: var(--white);
+      color: var(--charcoal);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--sage-light); border-radius: 3px; }
+
+    /* ─── NAVIGATION ─── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.5rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.5s ease, padding 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(253, 250, 245, 0.96);
+      backdrop-filter: blur(12px);
+      padding: 1rem 4rem;
+      box-shadow: 0 1px 0 rgba(30,29,27,0.08);
+    }
+
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+      text-decoration: none;
+    }
+
+    .nav-logo-img {
+      height: 52px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      transition: filter 0.4s;
+    }
+    nav.scrolled .nav-logo-img {
+      filter: none;
+    }
+
+    .nav-logo-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--cream);
+      letter-spacing: 0.04em;
+      line-height: 1;
+      transition: color 0.4s;
+    }
+
+    nav.scrolled .nav-logo-name {
+      color: var(--charcoal);
+    }
+
+    .nav-logo-sub {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.85);
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    nav.scrolled .nav-links a {
+      color: var(--charcoal-mid);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover { color: var(--sage); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      background: transparent;
+      border: 1px solid var(--sage);
+      color: var(--sage) !important;
+      padding: 0.55rem 1.4rem;
+      border-radius: 1px;
+      transition: background 0.3s ease, color 0.3s ease !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--sage) !important;
+      color: var(--white) !important;
+    }
+
+    .nav-cta::after { display: none !important; }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-bg-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 60%;
+      transform: scale(1.05);
+      animation: heroZoom 12s ease forwards;
+    }
+
+    @keyframes heroZoom {
+      from { transform: scale(1.05); }
+      to   { transform: scale(1.0); }
+    }
+
+    /* layered overlays for depth */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(30,29,27,0.72) 0%,
+        rgba(30,29,27,0.45) 50%,
+        rgba(30,29,27,0.65) 100%
+      );
+      z-index: 1;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 30%, rgba(30,29,27,0.45) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 52rem;
+      padding: 10rem 3rem 7rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.3s forwards;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.2rem, 6vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.5s forwards;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-light);
+      display: block;
+    }
+
+    .hero-divider {
+      width: 3rem;
+      height: 1px;
+      background: var(--gold);
+      margin: 2.2rem auto;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.75s forwards;
+    }
+
+    .hero-text {
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(245,240,232,0.82);
+      max-width: 32rem;
+      margin-bottom: 3rem;
+      line-height: 1.9;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.95s forwards;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 1.15s forwards;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 0.9rem 2.2rem;
+      background: var(--gold);
+      color: var(--charcoal);
+      text-decoration: none;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--light-gray);
+      transition: color 0.3s;
+    }
+
+    .btn-ghost:hover { color: var(--cream); }
+
+    .btn-ghost svg {
+      transition: transform 0.3s;
+    }
+    .btn-ghost:hover svg { transform: translateX(4px); }
+
+    .hero-phone {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      text-align: center;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 1.35s forwards;
+    }
+
+    .hero-phone-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sage-light);
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-phone-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--cream);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      transition: color 0.3s;
+    }
+
+    .hero-phone-number:hover { color: var(--gold-light); }
+
+    .hero-scroll-indicator {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      z-index: 2;
+      opacity: 0;
+      animation: fadeIn 1s ease 1.8s forwards;
+    }
+
+    .hero-scroll-line {
+      width: 1px;
+      height: 3rem;
+      background: linear-gradient(to bottom, rgba(245,240,232,0.5), transparent);
+      animation: scrollPulse 2s ease infinite;
+    }
+
+    .hero-scroll-label {
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.45);
+      writing-mode: vertical-lr;
+      text-orientation: mixed;
+    }
+
+    /* ─── TRUST BAR ─── */
+    .trust-bar {
+      background: var(--charcoal-mid);
+      padding: 1.5rem 4rem;
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      opacity: 0;
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    .trust-item:nth-child(1) { animation-delay: 0.1s; }
+    .trust-item:nth-child(2) { animation-delay: 0.2s; }
+    .trust-item:nth-child(3) { animation-delay: 0.3s; }
+    .trust-item:nth-child(4) { animation-delay: 0.4s; }
+
+    .trust-icon {
+      width: 1.8rem;
+      height: 1.8rem;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .trust-text {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--light-gray);
+    }
+
+    /* ─── SECTIONS GENERAL ─── */
+    section {
+      padding: 7rem 4rem;
+    }
+
+    .section-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300;
+      line-height: 1.25;
+      color: var(--charcoal);
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--sage);
+    }
+
+    .section-divider {
+      width: 2.5rem;
+      height: 1px;
+      background: var(--gold);
+      margin-bottom: 2rem;
+    }
+
+    /* ─── INTRO / PHILOSOPHY ─── */
+    .intro {
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .intro-left {
+      position: relative;
+    }
+
+    .intro-quote {
+      position: absolute;
+      top: -1rem;
+      left: -2rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 12rem;
+      font-weight: 300;
+      line-height: 1;
+      color: var(--sage-pale);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .intro-left > *:not(.intro-quote) {
+      position: relative;
+      z-index: 1;
+    }
+
+    .intro-body {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--charcoal-mid);
+      line-height: 1.9;
+      max-width: 36rem;
+    }
+
+    .intro-body p + p { margin-top: 1.5rem; }
+
+    .intro-signature {
+      margin-top: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .intro-signature-portrait {
+      width: 3.2rem;
+      height: 3.2rem;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 20%;
+      border: 2px solid var(--gold);
+      flex-shrink: 0;
+    }
+
+    .intro-signature-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .intro-signature-line {
+      width: 2rem;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .intro-signature-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--charcoal);
+    }
+
+    .intro-signature-role {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
+
+    /* Values grid */
+    .intro-values {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .value-card {
+      background: var(--cream);
+      padding: 2rem 1.8rem;
+      border-left: 2px solid transparent;
+      transition: border-color 0.3s, background 0.3s, transform 0.3s;
+      cursor: default;
+    }
+
+    .value-card:hover {
+      border-color: var(--gold);
+      background: var(--cream-dark);
+      transform: translateY(-2px);
+    }
+
+    .value-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: var(--parchment);
+      line-height: 1;
+      margin-bottom: 0.8rem;
+    }
+
+    .value-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 0.5rem;
+    }
+
+    .value-desc {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--warm-gray);
+      line-height: 1.7;
+    }
+
+    /* ─── SERVICES ─── */
+    .services {
+      background: var(--cream);
+    }
+
+    .services-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 4rem;
+    }
+
+    .services-header-right {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--warm-gray);
+      max-width: 22rem;
+      text-align: right;
+      line-height: 1.7;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--parchment);
+    }
+
+    .service-card {
+      background: var(--cream);
+      padding: 3rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.4s;
+      cursor: default;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--sage);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .service-card:hover { background: var(--white); }
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-card-image {
+      width: calc(100% + 5rem);
+      height: 11rem;
+      margin: -3rem -2.5rem 2rem;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .service-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.6s ease;
+    }
+
+    .service-card:hover .service-card-image img {
+      transform: scale(1.04);
+    }
+
+    .service-icon {
+      width: 2.8rem;
+      height: 2.8rem;
+      margin-bottom: 1.8rem;
+      color: var(--sage);
+    }
+
+    .service-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 1rem;
+    }
+
+    .service-desc {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--warm-gray);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sage);
+      text-decoration: none;
+      transition: gap 0.3s;
+    }
+
+    .service-link:hover { gap: 0.8rem; }
+
+    .service-bg-number {
+      position: absolute;
+      bottom: -1rem;
+      right: -0.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 7rem;
+      font-weight: 300;
+      color: var(--cream-dark);
+      line-height: 1;
+      pointer-events: none;
+      transition: color 0.4s;
+    }
+
+    .service-card:hover .service-bg-number { color: var(--parchment); }
+
+    /* ─── PROCESS ─── */
+    .process {
+      background: var(--white);
+    }
+
+    .process-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .process-left {
+      position: sticky;
+      top: 7rem;
+    }
+
+    .process-photo {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      object-position: center top;
+      margin-top: 2.5rem;
+    }
+
+    .process-header {
+      text-align: left;
+      margin-bottom: 5rem;
+    }
+
+    .process-header .section-divider {
+      margin: 0 0 2rem;
+    }
+
+    .process-steps {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      left: 2.2rem;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--sage-pale), var(--parchment));
+    }
+
+    .process-step {
+      display: grid;
+      grid-template-columns: 4.5rem 1fr;
+      gap: 2rem;
+      padding: 2rem 0;
+      position: relative;
+    }
+
+    .process-step + .process-step {
+      border-top: 1px solid var(--cream-dark);
+    }
+
+    .process-step-number {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 0.15rem;
+    }
+
+    .step-circle {
+      width: 2.4rem;
+      height: 2.4rem;
+      border-radius: 50%;
+      background: var(--white);
+      border: 1px solid var(--sage-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--sage);
+      position: relative;
+      z-index: 1;
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .process-step:hover .step-circle {
+      background: var(--sage);
+      border-color: var(--sage);
+      color: var(--white);
+    }
+
+    .process-step-content {
+      padding-bottom: 0.5rem;
+    }
+
+    .process-step-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 0.5rem;
+    }
+
+    .process-step-desc {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--warm-gray);
+      line-height: 1.8;
+    }
+
+    /* ─── TESTIMONIAL ─── */
+    .testimonial {
+      background: var(--charcoal);
+      padding: 7rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0.28;
+    }
+
+    .testimonial::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(30,29,27,0.55) 0%, rgba(30,29,27,0.4) 50%, rgba(30,29,27,0.65) 100%);
+      z-index: 1;
+    }
+
+    .testimonial-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .testimonial-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 8rem;
+      line-height: 0.6;
+      color: var(--sage);
+      opacity: 0.4;
+      margin-bottom: 2rem;
+    }
+
+    .testimonial-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--cream);
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+    }
+
+    .testimonial-author {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+
+    /* ─── CONTACT ─── */
+    .contact {
+      background: var(--cream);
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 0;
+      padding: 0;
+    }
+
+    .contact-left {
+      padding: 7rem 4rem 7rem 4rem;
+      background: var(--cream-dark);
+    }
+
+    .contact-info-items {
+      margin-top: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .contact-info-item {
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .contact-info-icon {
+      width: 1.2rem;
+      height: 1.2rem;
+      color: var(--sage);
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+
+    .contact-info-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-info-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--charcoal);
+    }
+
+    .contact-info-value a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .contact-info-value a:hover { color: var(--sage); }
+
+    .contact-emergency {
+      margin-top: 3rem;
+      padding: 1.8rem;
+      background: var(--charcoal);
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .contact-emergency-dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+      animation: pulse 2s ease infinite;
+    }
+
+    .contact-emergency-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 0.2rem;
+    }
+
+    .contact-emergency-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--cream);
+    }
+
+    /* Contact Form */
+    .contact-right {
+      padding: 7rem 4rem;
+    }
+
+    .form-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--charcoal);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-subtitle {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--warm-gray);
+      margin-bottom: 2.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-input,
+    .form-textarea,
+    .form-select {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: var(--white);
+      border: 1px solid var(--parchment);
+      border-radius: 0;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--charcoal);
+      outline: none;
+      transition: border-color 0.3s;
+      appearance: none;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus,
+    .form-select:focus {
+      border-color: var(--sage);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 130px;
+    }
+
+    .form-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%237c7870'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.8rem center;
+      background-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 1rem;
+      background: var(--sage);
+      color: var(--white);
+      border: none;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .form-submit:hover {
+      background: var(--charcoal);
+      transform: translateY(-1px);
+    }
+
+    .form-note {
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: var(--light-gray);
+      line-height: 1.6;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--charcoal);
+      padding: 4rem 4rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      opacity: 0.18;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 2rem;
+    }
+
+    .footer-brand .nav-logo-name {
+      color: var(--cream);
+      font-size: 1.8rem;
+    }
+
+    .footer-brand .nav-logo-sub {
+      color: var(--sage-light);
+    }
+
+    .footer-tagline {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--warm-gray);
+      line-height: 1.7;
+      max-width: 22rem;
+    }
+
+    .footer-col-title {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--warm-gray);
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover { color: var(--cream); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: var(--warm-gray);
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-legal a {
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: var(--warm-gray);
+      transition: color 0.3s;
+    }
+
+    .footer-legal a:hover { color: var(--cream); }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.1); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ─── HAMBURGER / MOBILE ─── */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: var(--charcoal);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    /* ─── MOBILE NAV DRAWER ─── */
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: var(--white);
+      z-index: 99;
+      padding: 5rem 2rem 2.5rem;
+      flex-direction: column;
+      gap: 0;
+      box-shadow: 0 8px 32px rgba(30,29,27,0.12);
+      transform: translateY(-100%);
+      transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .nav-mobile.open { transform: translateY(0); }
+
+    .nav-mobile a {
+      display: block;
+      text-decoration: none;
+      font-size: 1.6rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      color: var(--charcoal);
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--cream-dark);
+      transition: color 0.3s;
+    }
+
+    .nav-mobile a:hover { color: var(--sage); }
+
+    .nav-mobile-cta {
+      margin-top: 1.5rem;
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: var(--sage);
+      color: var(--white) !important;
+      font-family: 'Lato', sans-serif !important;
+      font-size: 0.7rem !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-align: center;
+      border-bottom: none !important;
+    }
+
+    .nav-mobile-phone {
+      margin-top: 1rem;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      text-align: center;
+    }
+
+    .nav-mobile-phone a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      text-decoration: none;
+      border-bottom: none !important;
+      padding: 0 !important;
+      display: inline !important;
+    }
+
+    /* hamburger → X animation */
+    .nav-toggle.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .nav-toggle.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-toggle.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+    .nav-toggle span { background: var(--cream); }
+    nav.scrolled .nav-toggle span { background: var(--charcoal); }
+
+    /* ─── RESPONSIVE 1100px ─── */
+    @media (max-width: 1100px) {
+      .intro { grid-template-columns: 1fr; gap: 3rem; }
+      .intro-values { max-width: 500px; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ─── RESPONSIVE 768px ─── */
+    @media (max-width: 768px) {
+      /* Nav */
+      nav { padding: 1.1rem 1.2rem; }
+      nav.scrolled { padding: 0.8rem 1.2rem; }
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .nav-mobile { display: flex; }
+
+      /* Sections */
+      section { padding: 3.5rem 1.2rem; }
+
+      /* Hero */
+      .hero-content { padding: 7rem 1.5rem 5rem; }
+      .hero-title { font-size: clamp(2.2rem, 9vw, 3.2rem); }
+      .hero-text { font-size: 0.92rem; max-width: 100%; }
+      .hero-actions { flex-direction: column; width: 100%; }
+      .hero-actions .btn-primary { width: 100%; text-align: center; }
+      .hero-phone-number { font-size: 1.6rem; }
+
+      /* Trust bar */
+      .trust-bar {
+        padding: 1rem 1.2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem 1rem;
+      }
+      .trust-item { gap: 0.5rem; }
+      .trust-icon { width: 1.3rem; height: 1.3rem; }
+      .trust-text { font-size: 0.58rem; }
+
+      /* Intro */
+      .intro { grid-template-columns: 1fr; gap: 2.5rem; padding: 3.5rem 1.2rem; }
+      .intro-body { font-size: 0.95rem; }
+      .intro-values { grid-template-columns: 1fr 1fr; gap: 0.8rem; max-width: 100%; }
+      .value-card { padding: 1.2rem; }
+      .value-number { font-size: 1.5rem; }
+      .value-desc { font-size: 0.8rem; }
+      .intro-quote { font-size: 7rem; left: -0.5rem; }
+
+      /* Services */
+      .services-grid { grid-template-columns: 1fr; }
+      .services-header { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+      .services-header-right { text-align: left; font-size: 0.85rem; }
+      .service-card { padding: 0 0 2rem; }
+      .service-card-image {
+        width: 100%;
+        margin: 0 0 1.5rem;
+        height: 13rem;
+      }
+      .service-title { padding: 0 1.5rem; }
+      .service-desc { padding: 0 1.5rem; }
+      .service-link { padding: 0 1.5rem; }
+      .service-bg-number { right: 1rem; }
+
+      /* Process */
+      .process-inner { grid-template-columns: 1fr; gap: 0; }
+      .process-left { position: static; margin-bottom: 2.5rem; }
+      .process-photo { aspect-ratio: 4/3; margin-top: 1.5rem; }
+      .process-header { margin-bottom: 0; }
+
+      /* Testimonial */
+      .testimonial { padding: 5rem 1.5rem; }
+      .testimonial-text { font-size: 1.25rem; }
+
+      /* Contact */
+      .contact { grid-template-columns: 1fr; }
+      .contact-left { padding: 3.5rem 1.2rem 2rem; }
+      .contact-right { padding: 2rem 1.2rem 3.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+
+      /* Footer */
+      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+      footer { padding: 3rem 1.2rem 1.5rem; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+    }
+
+    /* ─── RESPONSIVE 480px ─── */
+    @media (max-width: 480px) {
+      .intro-values { grid-template-columns: 1fr; }
+      .hero-title { font-size: clamp(2rem, 10vw, 2.8rem); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAVIGATION ─── -->
+  <nav id="navbar">
+    <a href="#" class="nav-logo">
+      <img src="logo.png" alt="Pietät Fred Gehbert" class="nav-logo-img">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#ablauf">Ablauf</a></li>
+      <li><a href="#ueber-uns">Über uns</a></li>
+      <li><a href="#kontakt" class="nav-cta">Beratung anfragen</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ─── MOBILE DRAWER ─── -->
+  <div class="nav-mobile" id="mobileNav">
+    <a href="#leistungen">Leistungen</a>
+    <a href="#ablauf">Ablauf</a>
+    <a href="#ueber-uns">Über uns</a>
+    <a href="#kontakt" class="nav-mobile-cta">Beratung anfragen</a>
+    <p class="nav-mobile-phone">
+      24h Notfall &nbsp;·&nbsp;
+      <a href="tel:+4917697340795">0176-97340795</a>
+    </p>
+  </div>
+
+  <!-- ─── HERO ─── -->
+  <header class="hero">
+    <img
+      class="hero-bg-img"
+      src="Gemini_Generated_Image_xaipc5xaipc5xaip Kopie.png"
+      alt="Botanischer Zweig auf Leinenstoff — Stille und Würde"
+    >
+    <div class="hero-content">
+      <p class="hero-eyebrow">Pietät Fred Gehbert · Bad Nauheim</p>
+      <h1 class="hero-title">
+        In schweren Stunden
+        <em>an Ihrer Seite</em>
+      </h1>
+      <div class="hero-divider"></div>
+      <p class="hero-text">
+        Wir begleiten Sie würdevoll und einfühlsam durch eine der schwersten Zeiten Ihres Lebens. Mit tiefem Respekt für den Verstorbenen und vollstem Einsatz für Ihre Familie.
+      </p>
+      <div class="hero-actions">
+        <a href="#kontakt" class="btn-primary">Kostenlose Beratung</a>
+        <a href="#leistungen" class="btn-ghost">
+          Unsere Leistungen
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+      <div class="hero-phone">
+        <p class="hero-phone-label">24/7 Notfallnummer</p>
+        <a href="tel:+4906032992750" class="hero-phone-number">06032-9927504</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── TRUST BAR ─── -->
+  <div class="trust-bar">
+    <div class="trust-item">
+      <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+      </svg>
+      <span class="trust-text">Erfahrenes Bestattungshaus</span>
+    </div>
+    <div class="trust-item">
+      <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="12" r="10"/>
+        <polyline points="12 6 12 12 16 14"/>
+      </svg>
+      <span class="trust-text">24 Stunden erreichbar</span>
+    </div>
+    <div class="trust-item">
+      <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+        <circle cx="9" cy="7" r="4"/>
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+      </svg>
+      <span class="trust-text">Persönliche Betreuung</span>
+    </div>
+    <div class="trust-item">
+      <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+      <span class="trust-text">Transparente Kosten</span>
+    </div>
+  </div>
+
+  <!-- ─── INTRO / PHILOSOPHY ─── -->
+  <section class="intro" id="ueber-uns">
+    <div class="intro-left reveal">
+      <span class="intro-quote">"</span>
+      <span class="section-label">Unsere Philosophie</span>
+      <h2 class="section-title">Jeder Abschied<br>verdient <em>Würde</em></h2>
+      <div class="section-divider"></div>
+      <div class="intro-body">
+        <p>
+          Pietät Fred Gehbert steht Ihnen in einer der schwersten Stunden zur Seite. Mit Einfühlsamkeit und Professionalität übernehmen wir die Überführung des Verstorbenen und begleiten Sie durch alle notwendigen Schritte.
+        </p>
+        <p>
+          Wir kümmern uns um alle Formalitäten — vom Bestattungsauftrag bis zur Beurkundung beim Standesamt. Kontaktieren Sie uns jederzeit: Tel. 06032-9927504 oder Mobil 0176-97340795.
+        </p>
+      </div>
+      <div class="intro-signature">
+        <img
+          class="intro-signature-portrait"
+          src="WhatsApp Image 2026-04-17 at 08.50.50.jpeg"
+          alt="Fred Gehbert, Inhaber Pietät Fred Gehbert"
+        >
+        <div class="intro-signature-info">
+          <span class="intro-signature-text">Fred Gehbert</span>
+          <span class="intro-signature-role">Inhaber &amp; Bestattungsmeister</span>
+        </div>
+      </div>
+    </div>
+    <div class="intro-values reveal reveal-delay-2">
+      <div class="value-card">
+        <div class="value-number">01</div>
+        <div class="value-title">Würde</div>
+        <p class="value-desc">Jeder Mensch verdient einen Abschied, der seine Einzigartigkeit würdigt — wir setzen das mit größter Sorgfalt um.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-number">02</div>
+        <div class="value-title">Einfühlsamkeit</div>
+        <p class="value-desc">Trauer braucht Raum. Wir hören zu, ohne zu drängen, und geben Ihnen die Zeit, die Sie benötigen.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-number">03</div>
+        <div class="value-title">Transparenz</div>
+        <p class="value-desc">Keine versteckten Kosten, keine Überraschungen. Wir beraten Sie offen und erläutern jeden Schritt.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-number">04</div>
+        <div class="value-title">Neutralität</div>
+        <p class="value-desc">Unabhängig von Weltanschauung, Religion oder Herkunft — wir sind für alle Menschen gleichermaßen da.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SERVICES ─── -->
+  <!-- ─── BESTATTUNGSARTEN ─── -->
+  <section style="background:var(--white);padding:6rem 4rem;" id="bestattungsarten">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div class="reveal" style="margin-bottom:3.5rem;">
+        <span class="section-label">Sarg &amp; Urne</span>
+        <h2 class="section-title">Bestattungs<em>arten</em></h2>
+        <div class="section-divider"></div>
+        <p style="font-size:0.95rem;font-weight:300;color:var(--warm-gray);max-width:620px;margin-top:1.25rem;">
+          Meine Leistungen beginnen mit der Abholung des Verstorbenen, der Überführung zum Krematorium und einem einfachen Sarg — <strong style="color:var(--charcoal);font-weight:400;">ab 999,00 €</strong> zzgl. Grabstätte. Eine Bestattung mit Blumenschmuck, Grabstelle und Zeitungsanzeige kostet in unserer Region im Schnitt <strong style="color:var(--charcoal);font-weight:400;">ab 4.000,00 €</strong>. Regionale Friedhofsgebühren und gewählte Leistungen beeinflussen den Preis.
+        </p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;">
+
+        <!-- Erdbestattung -->
+        <div class="reveal" style="background:var(--cream);padding:2rem 2rem 1.75rem;border-top:3px solid var(--gold);position:relative;">
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;color:var(--charcoal);margin-bottom:0.75rem;">Erdbestattung</h3>
+          <p style="font-size:0.88rem;font-weight:300;color:var(--charcoal-mid);line-height:1.8;margin-bottom:1.25rem;">Die Erdbestattung ist die traditionelle Beisetzung eines Verstorbenen in einem Sarg auf einem Friedhof, meist innerhalb von 4 bis 10 Tagen. In Deutschland besteht Friedhofspflicht, wobei Wahl- oder Reihengräber genutzt werden. Grabauswahl, Sarg und Beisetzungsort sind wesentliche Kostenfaktoren.</p>
+          <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);">Preis auf Anfrage</span>
+        </div>
+
+        <!-- Feuerbestattung -->
+        <div class="reveal reveal-delay-1" style="background:var(--cream);padding:2rem 2rem 1.75rem;border-top:3px solid var(--gold);position:relative;">
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;color:var(--charcoal);margin-bottom:0.75rem;">Feuerbestattung</h3>
+          <p style="font-size:0.88rem;font-weight:300;color:var(--charcoal-mid);line-height:1.8;margin-bottom:1.25rem;">Eine in Deutschland weit verbreitete Bestattungsart, bei der der Verstorbene im Sarg in einem Krematorium eingeäschert wird. Die Asche wird in einer Urne beigesetzt. Der Prozess erfordert eine zweite Leichenschau, erfolgt frühestens 48 Stunden nach Eintritt des Todes und bietet diverse Beisetzungsmöglichkeiten wie Friedhofs-, Wald- oder Seebestattungen.</p>
+          <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);">ab 2.500,00 €</span>
+        </div>
+
+        <!-- Waldbestattung -->
+        <div class="reveal reveal-delay-2" style="background:var(--cream);padding:2rem 2rem 1.75rem;border-top:3px solid var(--gold);position:relative;">
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;color:var(--charcoal);margin-bottom:0.75rem;">Waldbestattung</h3>
+          <p style="font-size:0.88rem;font-weight:300;color:var(--charcoal-mid);line-height:1.8;margin-bottom:1.25rem;">Eine naturnahe Bestattung des Verstorbenen in einer biologisch abbaubaren Urne im Wurzelbereich eines Baumes in einem speziell ausgewiesenen Waldgebiet. Eine Alternative zum klassischen Friedhof — Grabpflege entfällt, Grabschmuck ist nicht erlaubt, da die Natur die Grabstelle gestaltet.</p>
+          <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);">ab 2.800,00 €</span>
+        </div>
+
+        <!-- Seebestattung -->
+        <div class="reveal" style="background:var(--cream);padding:2rem 2rem 1.75rem;border-top:3px solid var(--gold);position:relative;">
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;color:var(--charcoal);margin-bottom:0.75rem;">Seebestattung</h3>
+          <p style="font-size:0.88rem;font-weight:300;color:var(--charcoal-mid);line-height:1.8;margin-bottom:1.25rem;">Die Beisetzung der Asche in einer speziellen, wasserlöslichen Urne auf hoher See — meist in Nord- oder Ostsee. Nach der Kremation wird die Urne im Beisein von Angehörigen vom Kapitän dem Meer übergeben. Nach einer Ehrenrunde und Schiffsglockenklang wird die Position im Logbuch notiert.</p>
+          <div style="display:flex;flex-direction:column;gap:0.3rem;">
+            <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);">ohne Angehörige ab 2.200,00 €</span>
+            <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);">mit Angehörigen ab 3.000,00 €</span>
+          </div>
+        </div>
+
+        <!-- Diamantbestattung -->
+        <div class="reveal reveal-delay-1" style="background:var(--cream);padding:2rem 2rem 1.75rem;border-top:3px solid var(--gold);position:relative;">
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;color:var(--charcoal);margin-bottom:0.75rem;">Diamantbestattung</h3>
+          <p style="font-size:0.88rem;font-weight:300;color:var(--charcoal-mid);line-height:1.8;margin-bottom:1.25rem;">Die Algordanza Diamantbestattung ist eine besondere Bestattungsart, bei der aus der Kremationsasche oder den Haaren eines Verstorbenen in der Schweiz ein einzigartiger, bläulicher synthetischer Diamant hergestellt wird. Das Verfahren simuliert die natürliche Entstehung von Diamanten unter hohem Druck und Temperatur (HPHT). Ein unvergängliches Unikat als Erinnerung.</p>
+          <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);">ab 7.500,00 €</span>
+        </div>
+
+        <!-- Stille Beisetzung -->
+        <div class="reveal reveal-delay-2" style="background:var(--cream);padding:2rem 2rem 1.75rem;border-top:3px solid var(--gold);position:relative;">
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;color:var(--charcoal);margin-bottom:0.75rem;">Stille Beisetzung</h3>
+          <p style="font-size:0.88rem;font-weight:300;color:var(--charcoal-mid);line-height:1.8;margin-bottom:1.25rem;">Eine Einäscherung und anschließend anonyme Feuerbestattung ohne Angehörige und Trauerfeier. Im Leistungsumfang enthalten: Abholung des Verstorbenen, Überführung zum Krematorium und einfacher Sarg.</p>
+          <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);">ab 1.999,00 €</span>
+        </div>
+
+        <!-- Urne mit nach Hause nehmen -->
+        <div class="reveal" style="background:var(--cream);padding:2rem 2rem 1.75rem;border-top:3px solid var(--gold);position:relative;">
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;color:var(--charcoal);margin-bottom:0.75rem;">Urne mit nach Hause nehmen</h3>
+          <p style="font-size:0.88rem;font-weight:300;color:var(--charcoal-mid);line-height:1.8;margin-bottom:1.25rem;">Die „Oase der Ewigkeit" bietet über Schweizer Partner die Möglichkeit, eine Urne legal zur Abschiednahme nach Hause zu nehmen — nach Schweizer Recht gilt die Übergabe an Angehörige bereits als Bestattung. Die Urne kann unbefristet zu Hause aufbewahrt werden, bevor eine spätere Naturbestattung in der Schweiz erfolgt.</p>
+          <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);">ab 3.000,00 €</span>
+        </div>
+
+        <!-- Baum aus der Asche -->
+        <div class="reveal reveal-delay-1" style="background:var(--cream);padding:2rem 2rem 1.75rem;border-top:3px solid var(--gold);position:relative;">
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;color:var(--charcoal);margin-bottom:0.75rem;">Baum aus der Asche</h3>
+          <p style="font-size:0.88rem;font-weight:300;color:var(--charcoal-mid);line-height:1.8;margin-bottom:1.25rem;">Ein Baum aus der Asche im eigenen Garten ist in Deutschland über spezialisierte Anbieter möglich. Da die direkte Beisetzung von Asche im Privatgarten verboten ist, wird die Asche im Ausland mit Erde vermischt, ein Baum gepflanzt und nach ca. 4–9 Monaten zur Pflanzung im eigenen Garten übergeben.</p>
+          <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);">ab 4.000,00 €</span>
+        </div>
+
+      </div>
+
+      <!-- Abschluss-Hinweis -->
+      <div class="reveal" style="margin-top:3rem;padding:2rem 2.5rem;background:var(--cream-dark);border-left:3px solid var(--sage);">
+        <p style="font-size:0.9rem;font-weight:300;color:var(--charcoal-mid);line-height:1.9;">
+          Bei weiteren Fragen rufen Sie mich gerne an oder schreiben Sie mir eine E-Mail — ich berate Sie persönlich, wie die Bestattung gestaltet werden soll.
+          <br><a href="tel:+4906032992750" style="color:var(--sage);text-decoration:none;font-weight:400;">06032-9927504</a>
+          &ensp;·&ensp;
+          <a href="tel:+4917697340795" style="color:var(--sage);text-decoration:none;font-weight:400;">0176-97340795</a>
+          &ensp;·&ensp;
+          <a href="mailto:f.g.gehbert@gmail.com" style="color:var(--sage);text-decoration:none;font-weight:400;">f.g.gehbert@gmail.com</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROCESS ─── -->
+  <section class="process" id="ablauf">
+    <div class="process-inner">
+      <div class="process-left">
+        <div class="process-header reveal">
+          <span class="section-label">So läuft es ab</span>
+          <h2 class="section-title">Wir nehmen Ihnen<br><em>jeden Schritt</em> ab</h2>
+          <div class="section-divider"></div>
+          <p style="font-size:0.95rem;font-weight:300;color:var(--warm-gray);max-width:32rem;">
+            In einem der schwersten Momente Ihres Lebens müssen Sie nicht allein entscheiden. Wir führen Sie ruhig und kompetent durch jeden notwendigen Schritt.
+          </p>
+        </div>
+        <img class="process-photo reveal" src="Google Gemini Bild Kopie 7.png" alt="Persönliches Beratungsgespräch bei Bestattungen Neutral">
+      </div>
+      <div class="process-steps">
+
+        <div class="process-step reveal">
+          <div class="process-step-number">
+            <div class="step-circle">1</div>
+          </div>
+          <div class="process-step-content">
+            <h3 class="process-step-title">Erstkontakt & Überführung</h3>
+            <p class="process-step-desc">
+              Rufen Sie uns an — zu jeder Tages- und Nachtzeit. Wir kommen sofort zu Ihnen oder zum Sterbeort und übernehmen die würdevolle Überführung des Verstorbenen.
+            </p>
+          </div>
+        </div>
+
+        <div class="process-step reveal reveal-delay-1">
+          <div class="process-step-number">
+            <div class="step-circle">2</div>
+          </div>
+          <div class="process-step-content">
+            <h3 class="process-step-title">Bestattungsauftrag</h3>
+            <p class="process-step-desc">
+              Füllen Sie den Bestattungsauftrag aus und senden Sie ihn unterschrieben zurück — damit wir alle weiteren Schritte einleiten können. Die benötigten Unterlagen finden Sie weiter unten.
+            </p>
+            <a href="Bestattungsauftrag Fred Gehbert.pdf" download style="display:inline-flex;align-items:center;gap:0.5rem;margin-top:1rem;font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);text-decoration:none;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Bestattungsauftrag herunterladen
+            </a>
+          </div>
+        </div>
+
+        <div class="process-step reveal reveal-delay-2">
+          <div class="process-step-number">
+            <div class="step-circle">3</div>
+          </div>
+          <div class="process-step-content">
+            <h3 class="process-step-title">Beurkundung & Formalitäten</h3>
+            <p class="process-step-desc">
+              Wir unterstützen Sie bei der Beurkundung des Sterbefalls beim Standesamt und den notwendigen behördlichen Schritten.
+            </p>
+          </div>
+        </div>
+
+        <div class="process-step reveal reveal-delay-1">
+          <div class="process-step-number">
+            <div class="step-circle">4</div>
+          </div>
+          <div class="process-step-content">
+            <h3 class="process-step-title">Beisetzung</h3>
+            <p class="process-step-desc">
+              Wir begleiten Sie durch die Bestattung — entsprechend Ihren Wünschen und der gewählten Bestattungsart. Informationen zu Bestattungsarten & Preisen erhalten Sie auf Anfrage.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TESTIMONIAL ─── -->
+  <section class="testimonial">
+    <img class="testimonial-bg" src="Gemini_Generated_Image_b6el49b6el49b6el Kopie.png" alt="">
+    <div class="testimonial-inner reveal">
+      <div class="testimonial-mark">"</div>
+      <p class="testimonial-text">
+        In unserer tiefsten Not haben die Menschen von Pietät Fred Gehbert alles getan, damit mein Vater einen würdevollen Abschied bekam. Die Ruhe und Einfühlsamkeit, die wir erfahren haben, hat uns wirklich getragen.
+      </p>
+      <p class="testimonial-author">— Maria K., Bad Nauheim</p>
+    </div>
+  </section>
+
+  <!-- ─── UNTERLAGEN ─── -->
+  <section style="background:var(--cream-dark);padding:5rem 4rem;">
+    <div style="max-width:900px;margin:0 auto;">
+      <span class="section-label">Wichtige Information</span>
+      <h2 class="section-title" style="margin-bottom:2rem;">Unterlagen bei einem <em>Sterbefall</em></h2>
+      <p style="font-size:0.95rem;color:var(--warm-gray);margin-bottom:2.5rem;max-width:600px;">
+        Für die Beurkundung des Sterbefalls beim Standesamt (Sterbeurkunde) werden je nach Familienstand folgende Unterlagen benötigt:
+      </p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;">
+        <div style="background:var(--white);padding:1.75rem;border-left:3px solid var(--gold);">
+          <p style="font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);margin-bottom:0.75rem;">Ledig</p>
+          <p style="font-size:0.9rem;color:var(--charcoal-mid);line-height:1.7;">Geburtsurkunde<br>Personalausweis</p>
+        </div>
+        <div style="background:var(--white);padding:1.75rem;border-left:3px solid var(--gold);">
+          <p style="font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);margin-bottom:0.75rem;">Verheiratet</p>
+          <p style="font-size:0.9rem;color:var(--charcoal-mid);line-height:1.7;">Stammbuch<br>Heiratsurkunde<br>Personalausweis</p>
+        </div>
+        <div style="background:var(--white);padding:1.75rem;border-left:3px solid var(--gold);">
+          <p style="font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);margin-bottom:0.75rem;">Ehepartner verstorben</p>
+          <p style="font-size:0.9rem;color:var(--charcoal-mid);line-height:1.7;">Stammbuch<br>Heiratsurkunde<br>Sterbeurkunde Ehepartner<br>Personalausweis</p>
+        </div>
+        <div style="background:var(--white);padding:1.75rem;border-left:3px solid var(--gold);">
+          <p style="font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);margin-bottom:0.75rem;">Ehe geschieden</p>
+          <p style="font-size:0.9rem;color:var(--charcoal-mid);line-height:1.7;">Stammbuch<br>Heiratsurkunde<br>Scheidungsurteil<br>Personalausweis</p>
+        </div>
+      </div>
+      <p style="margin-top:2rem;font-size:0.85rem;color:var(--warm-gray);">
+        Füllen Sie bitte den <strong style="color:var(--charcoal);">Bestattungsauftrag</strong> aus und senden Sie ihn unterschrieben zurück — damit wir umgehend die Überführung des Verstorbenen einleiten können.
+      </p>
+      <a href="Bestattungsauftrag Fred Gehbert.pdf" download style="display:inline-flex;align-items:center;gap:0.5rem;margin-top:1.25rem;font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);text-decoration:none;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Bestattungsauftrag herunterladen
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ─── CONTACT ─── -->
+  <section class="contact" id="kontakt">
+    <div class="contact-left">
+      <span class="section-label">Kontakt</span>
+      <h2 class="section-title" style="color:var(--charcoal);">Wir sind<br><em>für Sie da</em></h2>
+      <div class="section-divider"></div>
+      <p style="font-size:0.9rem;font-weight:300;color:var(--warm-gray);line-height:1.8;max-width:22rem;">
+        Scheuen Sie sich nicht, uns zu kontaktieren — jederzeit, auch wenn Sie nur Fragen haben oder eine Vorsorge planen möchten.
+      </p>
+
+      <div class="contact-info-items">
+        <div class="contact-info-item reveal">
+          <svg class="contact-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <div>
+            <p class="contact-info-label">Adresse</p>
+            <p class="contact-info-value">Ernst-Ludwig-Ring 4<br>61231 Bad Nauheim</p>
+          </div>
+        </div>
+        <div class="contact-info-item reveal reveal-delay-2">
+          <svg class="contact-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <div>
+            <p class="contact-info-label">E-Mail</p>
+            <p class="contact-info-value">
+              Kontaktformular verwenden
+            </p>
+          </div>
+        </div>
+        <div class="contact-info-item reveal reveal-delay-3">
+          <svg class="contact-info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          <div>
+            <p class="contact-info-label">Erreichbarkeit</p>
+            <p class="contact-info-value">Mobil jederzeit erreichbar</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-emergency reveal">
+        <div class="contact-emergency-dot"></div>
+        <div>
+          <p class="contact-emergency-label">24h Notfallnummer</p>
+          <p class="contact-emergency-text">
+            <a href="tel:+4917697340795" style="color:inherit;text-decoration:none;">0176-97340795</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-right reveal">
+      <h3 class="form-title">Nachricht senden</h3>
+      <p class="form-subtitle">Wir antworten Ihnen innerhalb von 24 Stunden.</p>
+
+      <form id="contact-form" action="https://formspree.io/f/xojyeopd" method="POST">
+        <input type="hidden" name="_replyto" value="">
+        <input type="hidden" name="_subject" value="Neue Anfrage – Pietät Fred Gehbert">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="vorname">Vorname</label>
+            <input class="form-input" type="text" id="vorname" name="vorname" placeholder="Max" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="nachname">Nachname</label>
+            <input class="form-input" type="text" id="nachname" name="nachname" placeholder="Mustermann" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">E-Mail-Adresse</label>
+          <input class="form-input" type="email" id="email" name="email" placeholder="max@beispiel.de" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="telefon">Telefonnummer (optional)</label>
+          <input class="form-input" type="tel" id="telefon" name="telefon" placeholder="0621 000 000">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="anliegen">Ihr Anliegen</label>
+          <select class="form-select" id="anliegen" name="anliegen">
+            <option value="">Bitte wählen…</option>
+            <option>Sterbefall eingetreten</option>
+            <option>Vorsorge / Vorsorgeregelung</option>
+            <option>Allgemeine Anfrage</option>
+            <option>Kostenschätzung anfragen</option>
+            <option>Trauerbegleitung</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="nachricht">Nachricht</label>
+          <textarea class="form-textarea" id="nachricht" name="nachricht" placeholder="Wie können wir Ihnen helfen?"></textarea>
+        </div>
+        <button type="submit" class="form-submit">Nachricht absenden</button>
+        <div id="form-success" style="display:none;margin-top:1rem;padding:1rem 1.25rem;background:rgba(107,140,107,0.12);border-left:3px solid var(--sage);font-size:0.9rem;color:var(--sage);">
+          Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet. Wir melden uns innerhalb von 24 Stunden.
+        </div>
+        <div id="form-error" style="display:none;margin-top:1rem;padding:1rem 1.25rem;background:rgba(180,60,60,0.08);border-left:3px solid #b43c3c;font-size:0.9rem;color:#b43c3c;">
+          Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder rufen Sie uns direkt an.
+        </div>
+        <p class="form-note">
+          Ihre Angaben werden vertraulich behandelt und ausschließlich zur Bearbeitung Ihrer Anfrage verwendet. Weitere Informationen finden Sie in unserer <a href="datenschutz.html" style="color:var(--sage);">Datenschutzerklärung</a>.
+        </p>
+      </form>
+
+      <script>
+        document.getElementById('contact-form').addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const form = e.target;
+          const successEl = document.getElementById('form-success');
+          const errorEl = document.getElementById('form-error');
+          successEl.style.display = 'none';
+          errorEl.style.display = 'none';
+          try {
+            const res = await fetch(form.action, {
+              method: 'POST',
+              body: new FormData(form),
+              headers: { 'Accept': 'application/json' }
+            });
+            if (res.ok) {
+              form.reset();
+              successEl.style.display = 'block';
+            } else {
+              errorEl.style.display = 'block';
+            }
+          } catch {
+            errorEl.style.display = 'block';
+          }
+        });
+      </script>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <img class="footer-bg" src="Google Gemini Generated Image Kopie 3.png" alt="">
+    <div class="footer-top" style="position:relative;z-index:1;">
+      <div class="footer-brand">
+        <a href="#" style="text-decoration:none;display:inline-block;margin-bottom:1rem;">
+          <img src="logo.png" alt="Pietät Fred Gehbert" style="height:80px;width:auto;filter:brightness(0) invert(1);display:block;">
+        </a>
+        <p class="footer-tagline">
+          Pietät Fred Gehbert — Ihr Bestattungsunternehmen in Bad Nauheim. Wir übernehmen die Überführung und begleiten Sie durch alle Schritte. Tel. 06032-9927504
+        </p>
+      </div>
+      <div>
+        <p class="footer-col-title">Leistungen</p>
+        <ul class="footer-links">
+          <li><a href="#leistungen">Erdbestattung</a></li>
+          <li><a href="#leistungen">Feuerbestattung</a></li>
+          <li><a href="#leistungen">Überführung</a></li>
+          <li><a href="#leistungen">Bestattungsarten & Preise</a></li>
+          <li><a href="#leistungen">Särge & Urnen</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Information</p>
+        <ul class="footer-links">
+          <li><a href="#ueber-uns">Über uns</a></li>
+          <li><a href="#ablauf">Ablauf</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Kontakt</p>
+        <ul class="footer-links">
+          <li><a href="#">Ernst-Ludwig-Ring 4</a></li>
+          <li><a href="#">61231 Bad Nauheim</a></li>
+          <li><a href="tel:+4906032992750">06032-9927504</a></li>
+          <li><a href="tel:+4917697340795">0176-97340795</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom" style="position:relative;z-index:1;">
+      <p class="footer-copy">© 2024 Pietät Fred Gehbert · Inh. Fred Gehbert · Ernst-Ludwig-Ring 4, 61231 Bad Nauheim</p>
+      <ul class="footer-legal">
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    // ─── NAVBAR SCROLL ───
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // ─── MOBILE MENU ───
+    const toggle = document.querySelector('.nav-toggle');
+    const mobileNav = document.getElementById('mobileNav');
+
+    toggle.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      toggle.classList.toggle('active', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        toggle.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // ─── SCROLL REVEAL ───
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(el => observer.observe(el));
+
+    // ─── TRUST BAR REVEAL ON LOAD ───
+    const trustItems = document.querySelectorAll('.trust-item');
+    trustItems.forEach(item => {
+      item.style.animationPlayState = 'running';
+    });
+
+    // ─── FORM SUBMIT ───
+    const form = document.querySelector('form');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('.form-submit');
+      const original = btn.textContent;
+      btn.textContent = 'Nachricht gesendet ✓';
+      btn.style.background = 'var(--sage)';
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.style.background = '';
+        form.reset();
+      }, 3000);
+    });
+
+    // ─── SMOOTH SCROLL ───
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
